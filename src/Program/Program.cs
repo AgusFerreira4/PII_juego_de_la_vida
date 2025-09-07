@@ -10,6 +10,9 @@ namespace Ucu.Poo.GameOfLife
         }
     }
 }
+
+// Cumple SRP porque tiene la unica responsabilidad de leer y de parsear.
+// Cumple expert porque es la parte del codigo con la que se puede parsear 1/0 en una matriz bool[,] sin necesidad de otras clases
 public class LeerArchivo
 {
     public  bool[,] Archivo(string url)
