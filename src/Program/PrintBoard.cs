@@ -8,6 +8,15 @@ namespace Ucu.Poo.GameOfLife;
 public static class PrintBoard
 {
     public static void Print(bool[,] b, int width, int height)
+    
+        // SRP: PrintBoard solo se encarga de mostrar el tablero.
+        // La lógica de evolución de las células está delegada a otra clase (DesarrolloDeCelulas),
+        // manteniendo separadas las responsabilidades.
+
+        // Expert (GRASP): PrintBoard recibe la matriz del tablero y conoce sus dimensiones,
+        // por lo tanto es la clase experta en cómo recorrer e imprimir el estado de cada celda.
+        // No depende de otras clases para saber cómo mostrar el tablero.
+
     {
         while (true)
         {
@@ -31,7 +40,7 @@ public static class PrintBoard
             }
 
             Console.WriteLine(s.ToString());
-            DesarrolloDeCelulas.ControlarCelulas(b);
+            b = DesarrolloDeCelulas.ControlarCelulas(b);
             Thread.Sleep(300);
         }
     }
